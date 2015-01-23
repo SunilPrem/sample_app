@@ -1,0 +1,39 @@
+<%= form_for(@generic_master) do |f| %>
+  <% if @generic_master.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@generic_master.errors.count, "error") %> prohibited this generic_master from being saved:</h2>
+
+      <ul>
+      <% @generic_master.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :full_name %><br>
+    <%= f.text_field :full_name %>
+  </div>
+  <% if @generic_master.table_type == "three_column" %>
+    <div class="field">
+      <%= f.label :precedence %><br>
+      <%= f.number_field :precedence %>
+    </div>
+  <% end %>
+    <div class="field">
+    <%= f.label :table_name %><br>
+    <%= f.text_field :table_name %>
+  </div>
+  <div class="field" hidden>
+    <%= f.label :table_type %><br>
+    <%= f.text_field :table_type %>
+  </div>
+  <div class="actions">
+    <%= f.submit "Create #{@generic_master.table_name.titleize.singularize}" %>
+  </div>
+<% end %>

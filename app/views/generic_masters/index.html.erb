@@ -1,0 +1,76 @@
+<p id="notice"><%= notice %></p>
+
+<h1><%=  @generic_master_table_name.titleize.pluralize %> Master Table</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Full name</th>
+      <% if @generic_master_table_type == "three_column" %>
+        <th>Precedence</th>
+      <% end %>
+      <th>Table Name</th>
+      <th hidden>Table Type</th>
+      <th hidden>Status</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @generic_masters.each do |generic_master| %>
+      <tr>
+        <td><%= generic_master.name %></td>
+        <td><%= generic_master.full_name %></td>
+        <% if @generic_master_table_type == "three_column" %>
+          <td><%= generic_master.precedence %></td>
+        <% end %>
+        <!-- <td><%= hidden_field_tag(generic_master.table_name) %></td> -->
+        <td><%= generic_master.table_name %></td>
+        <td hidden><%= generic_master.table_type %></td>
+        <td hidden><%= generic_master.status %></td>
+        <td><%= link_to 'Show', generic_master %></td>
+        <td><%= link_to 'Edit', edit_generic_master_path(generic_master, :table_name => generic_master.table_name, :table_type => generic_master.table_type) %></td>
+        <td><%= link_to 'Destroy', generic_master, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to "New #{@generic_master_table_name.titleize.singularize}", new_generic_master_path(:table_name => @generic_master_table_name, :table_type => @generic_master_table_type) %>
+
+<!-- <p id="notice"><%= notice %></p>
+
+<h1>Listing Generic Masters</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Full name</th>
+      <th>Precedence</th>
+      <th>Type</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @generic_masters.each do |generic_master| %>
+      <tr>
+        <td><%= generic_master.name %></td>
+        <td><%= generic_master.full_name %></td>
+        <td><%= generic_master.precedence %></td>
+        <td><%= generic_master.table_type %></td>
+        <td><%= link_to 'Show', generic_master %></td>
+        <td><%= link_to 'Edit', edit_generic_master_path(generic_master) %></td>
+        <td><%= link_to 'Destroy', generic_master, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Generic master', new_generic_master_path %> -->

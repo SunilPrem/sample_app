@@ -1,0 +1,5 @@
+<h1>New <%= @generic_master.table_name.titleize.singularize  %></h1>
+
+<%= render 'form' %>
+
+<%= link_to 'Back', generic_masters_path(:table_name => @generic_master.table_name, :table_type => @generic_master.table_type) %>

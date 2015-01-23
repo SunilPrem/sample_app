@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @generic_master.name %>
+</p>
+
+<p>
+  <strong>Full name:</strong>
+  <%= @generic_master.full_name %>
+</p>
+
+<p>
+  <strong>Precedence:</strong>
+  <%= @generic_master.precedence %>
+</p>
+
+<p>
+  <strong>Table Name:</strong>
+  <%= @generic_master.table_name %>
+</p>
+
+<%= link_to 'Edit', edit_generic_master_path(@generic_master, :table_name => @generic_master.table_name, :table_type => @generic_master.table_type) %> |
+<%= link_to 'Back', generic_masters_path(:table_name => @generic_master.table_name, :table_type => @generic_master.table_type) %>

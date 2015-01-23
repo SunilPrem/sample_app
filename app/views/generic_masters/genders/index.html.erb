@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Genders</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Full name</th>
+      <th>Precedence</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @generic_masters.each do |generic_master| %>
+      <tr>
+        <td><%= generic_master.name %></td>
+        <td><%= generic_master.full_name %></td>
+        <td><%= generic_master.precedence %></td>
+        <td><%= link_to 'Show', generic_master %></td>
+        <td><%= link_to 'Edit', edit_generic_master_path(generic_master) %></td>
+        <td><%= link_to 'Destroy', generic_master, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Generic master', new_generic_master_path %>
